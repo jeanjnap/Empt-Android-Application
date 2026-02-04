@@ -46,7 +46,15 @@ dependencies {
     implementation(libs.androidx.ui.graphics)
     implementation(libs.androidx.ui.tooling.preview)
     implementation(libs.androidx.material3)
+
+    implementation(files("libs/app-print_x990.aar"))
+    implementation(files("libs/apix990-release.aar"))
+
+    implementation(files("libs/usdk_api_aidl_limited_v2.0.1.20210628.jar"))
+    implementation(files("libs/usdk_api_aidl_v13.8.0.20221215.jar"))
+
     testImplementation(libs.junit)
+
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
     androidTestImplementation(platform(libs.androidx.compose.bom))

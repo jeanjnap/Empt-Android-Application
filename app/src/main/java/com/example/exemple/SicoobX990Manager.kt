@@ -3,6 +3,7 @@ package com.example.exemple
 import android.app.Activity
 import android.content.Context
 import android.util.Log
+import android.widget.Toast
 import printx990.br.apix990.internal.TransactionInfo
 import printx990.br.apix990.internal.domain.callbacks.TransactionCallback
 import printx990.br.apix990.internal.domain.dto.CREDITTYPE
@@ -27,7 +28,9 @@ class SicoobX990Manager(private val context: Context) {
             ),
             object : TransactionCallback {
                 override fun onTransactionResult(resultData: String) {
-                    Log.i("SicoobX990Manager", "Transaction Result: $resultData")
+                    val res = "Transaction Result: $resultData"
+                    Log.i("SicoobX990Manager", res)
+                    Toast.makeText(context, res, Toast.LENGTH_LONG).show()
                 }
             }
         )

@@ -13,6 +13,7 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
+import coil3.compose.AsyncImage
 import com.example.exemple.payment.SipagSaleManager
 import com.example.exemple.payment.othrer.ClassificacaoTipoPagamentoEnum
 import com.example.exemple.payment.othrer.TipoCartaoEnum
@@ -31,6 +32,10 @@ fun IntegrationOptionsScreen(
         horizontalAlignment = Alignment.CenterHorizontally
 
     ) {
+        AsyncImage(
+            model = "https://developer.android.com/static/images/home/gemma-4-android-lockup.png?hl=pt-br",
+            contentDescription = null,
+        )
         Button(
             onClick = {
                 navController.navigate(Destinations.PAYMENT_SCREEN)

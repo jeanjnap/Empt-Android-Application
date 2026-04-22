@@ -53,6 +53,8 @@ dependencies {
     implementation(libs.androidx.ui.tooling.preview)
     implementation(libs.androidx.material3)
     implementation(libs.androidx.navigation.compose)
+    implementation(libs.compose.coil)
+    implementation(libs.compose.coil.network.okhttp)
 
     // Siccob X990 e D8000
     implementation(files("libs_sicoob/app-print_x990.aar"))

@@ -1,3 +1,7 @@
+import org.gradle.kotlin.dsl.debugImplementation
+import org.gradle.kotlin.dsl.implementation
+import org.gradle.kotlin.dsl.releaseImplementation
+
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
@@ -25,11 +29,13 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_11
-        targetCompatibility = JavaVersion.VERSION_11
+        sourceCompatibility = JavaVersion.VERSION_21
+        targetCompatibility = JavaVersion.VERSION_21
     }
-    kotlinOptions {
-        jvmTarget = "11"
+    kotlin {
+        compilerOptions {
+            optIn.add("kotlin.RequiresOptIn")
+        }
     }
     buildFeatures {
         compose = true
@@ -46,12 +52,18 @@ dependencies {
     implementation(libs.androidx.ui.graphics)
     implementation(libs.androidx.ui.tooling.preview)
     implementation(libs.androidx.material3)
+    implementation(libs.androidx.navigation.compose)
 
-    implementation(files("libs/app-print_x990.aar"))
-    implementation(files("libs/apix990-release.aar"))
+    // Siccob X990 e D8000
+    implementation(files("libs_sicoob/app-print_x990.aar"))
+    implementation(files("libs_sicoob/apix990-release.aar"))
 
-    implementation(files("libs/usdk_api_aidl_limited_v2.0.1.20210628.jar"))
-    implementation(files("libs/usdk_api_aidl_v13.8.0.20221215.jar"))
+    // Sicoob P2
+    debugImplementation(files("libs_sicoob/pos7api-debug-v1090004.aar"))
+    releaseImplementation(files("libs_sicoob/pos7api-release-v1090004.aar"))
+
+    implementation(libs.printerlibrary)
+    implementation(libs.gson)
 
     testImplementation(libs.junit)
 
